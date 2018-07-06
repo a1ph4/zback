@@ -1,5 +1,5 @@
 {
-  "name": "TellForm",
+  "name": "tellform",
   "description": "Opensource alternative to TypeForm",
   "version": "2.1.0",
   "homepage": "https://github.com/tellform/tellform",
@@ -10,7 +10,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/tellform/tellform.git"
+    "url": "git+https://github.com/tellform/tellform.git"
   },
   "engines": {
     "node": "6.x.x",
@@ -118,5 +118,10 @@
     "supertest": "~1.2.0",
     "supertest-session": "~2.0.1",
     "wiredep": "^4.0.0"
-  }
+  },
+  "bugs": {
+    "url": "https://github.com/tellform/tellform/issues"
+  },
+  "main": "gruntfile.js",
+  "author": "Jayant R. Singh"
 }

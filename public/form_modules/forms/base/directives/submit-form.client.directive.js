@@ -2,12 +2,12 @@
 
 //FIXME: Should find an appropriate place for this
 //Setting up jsep
-jsep.addBinaryOp('contains', 10);
-jsep.addBinaryOp('!contains', 10);
-jsep.addBinaryOp('begins', 10);
-jsep.addBinaryOp('!begins', 10);
-jsep.addBinaryOp('ends', 10);
-jsep.addBinaryOp('!ends', 10);
+// jsep.addBinaryOp('contains', 10);
+// jsep.addBinaryOp('!contains', 10);
+// jsep.addBinaryOp('begins', 10);
+// jsep.addBinaryOp('!begins', 10);
+// jsep.addBinaryOp('ends', 10);
+// jsep.addBinaryOp('!ends', 10);
 
 angular.module('view-form').directive('submitFormDirective', ['$http', 'TimeCounter', '$filter', '$rootScope', 'SendVisitorData', '$translate', '$timeout',
     function ($http, TimeCounter, $filter, $rootScope, SendVisitorData, $translate, $timeout) {
@@ -53,8 +53,10 @@ angular.module('view-form').directive('submitFormDirective', ['$http', 'TimeCoun
                     $scope.selected = {
                         _id: '',
                         index: 0
-                    };
-                    $scope.setActiveField($scope.myform.visible_form_fields[0]._id, 0, false);
+					};
+					if($scope.myform.visible_form_fields[0]){
+						$scope.setActiveField($scope.myform.visible_form_fields[0]._id, 0, false);
+					}
 
                     //Reset Timer
                     TimeCounter.restartClock();
@@ -327,24 +329,24 @@ angular.module('view-form').directive('submitFormDirective', ['$http', 'TimeCoun
 				};
 
 				var getIpAndGeo = function(){
-					//Get Ip Address and GeoLocation Data
-					$.ajaxSetup( { 'async': false } );
-					var geoData = $.getJSON('https://freegeoip.net/json/').responseJSON;
-					$.ajaxSetup( { 'async': true } );
+					// //Get Ip Address and GeoLocation Data
+					// $.ajaxSetup( { 'async': false } );
+					// var geoData = $.getJSON('https://freegeoip.net/json/').responseJSON;
+					// $.ajaxSetup( { 'async': true } );
 
-					if(!geoData || !geoData.ip){
-						geoData = {
-							ip: 'Adblocker'
-						};
-					}
-
-					return {
-						ipAddr: geoData.ip,
-						geoLocation: {
-							City: geoData.city,
-							Country: geoData.country_name
-						}
-					};
+					// if(!geoData || !geoData.ip){
+					// 	geoData = {
+					// 		ip: 'Adblocker'
+					// 	};
+					// }
+return
+					// return {
+					// 	ipAddr: geoData.ip,
+					// 	geoLocation: {
+					// 		City: geoData.city,
+					// 		Country: geoData.country_name
+					// 	}
+					// };
 				};
 
 				$rootScope.submitForm = $scope.submitForm = function() {
@@ -361,9 +363,9 @@ angular.module('view-form').directive('submitFormDirective', ['$http', 'TimeCoun
 					var deviceData = getDeviceData();
 					form.device = deviceData;
 
-					var geoData = getIpAndGeo();
-					form.ipAddr = geoData.ipAddr;
-					form.geoLocation = geoData.geoLocation;
+					//var geoData = getIpAndGeo();
+					//form.ipAddr = geoData.ipAddr;
+					//form.geoLocation = geoData.geoLocation;
 
 					form.timeElapsed = _timeElapsed;
 					form.percentageComplete = $filter('formValidity')($scope.myform) / $scope.myform.visible_form_fields.length * 100;

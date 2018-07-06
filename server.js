@@ -12,8 +12,8 @@ if(!process.env.NODE_ENV){
     process.env.NODE_ENV = 'development';
 }
 
-var pkey = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/privkey.pem')
-var cert = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/fullchain.pem')
+// var pkey = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/privkey.pem')
+// var cert = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/fullchain.pem')
 
 
 require('events').EventEmitter.prototype._maxListeners = 0;

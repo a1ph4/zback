@@ -1,6 +1,6 @@
 var fs = require('fs')
-var pkey = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/privkey.pem')
-var cert = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/fullchain.pem')
+// var pkey = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/privkey.pem')
+// var cert = fs.readFileSync('/etc/letsencrypt/live/register.earlybird.camp/fullchain.pem')
 
 var express = require('express') 
 var app = express() 
